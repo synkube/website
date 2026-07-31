@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/*
+ * THEME: neo-cyber (dark)
+ * ------------------------------------------------------------------
+ * All brand colors live in this one block. To retheme the site,
+ * change these values (or swap the block); components only ever
+ * reference the semantic token names below.
+ */
+:root {
+  --bg: #04070f;
+  --bg-elevated: #090e1a;
+  --surface: #0b1122;
+  --line: #1b2540;
+  --line-strong: #2a3a63;
+  --ink: #e8eefb;
+  --ink-muted: #94a0ba;
+  --accent: #3ce3ff;
+  --accent-soft: rgba(60, 227, 255, 0.12);
+  --accent-2: #a08bff;
+  --ok: #52e09b;
+  --grid-line: rgba(60, 227, 255, 0.05);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-ok: var(--ok);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Subtle blueprint grid used behind the hero. */
+.bg-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
+
+/* Mono uppercase section label, e.g. "// PRODUCTS" */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}

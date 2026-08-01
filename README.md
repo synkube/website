@@ -1,4 +1,4 @@
-# synkube.com — marketing site
+# synkube.com · marketing site
 
 Static marketing site for [synkube.com](https://synkube.com). Next.js App Router, Tailwind CSS v4, fully static pages, hosted on Vercel.
 
@@ -18,7 +18,7 @@ pnpm typecheck
 |------|---------|
 | `src/app/` | Routes: `/`, `/products`, `/services`, `/contact` + `robots`/`sitemap` |
 | `src/components/` | Header, footer |
-| `src/lib/content.ts` | All copy and product/service data — edit content here, not in pages |
+| `src/lib/content.ts` | All copy and product/service data. Edit content here, not in pages. |
 | `src/app/globals.css` | Theme tokens (see below) |
 
 ## Theming

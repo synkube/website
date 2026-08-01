@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { DeliveryFlow } from "@/components/delivery-flow";
+import { PlatformMap } from "@/components/platform-map";
 import { journey, products, proofPoints, site, stack } from "@/lib/content";
 
 export default function HomePage() {
@@ -6,11 +8,33 @@ export default function HomePage() {
     <>
       <Hero />
       <ProductGrid />
+      <DeliveryPath />
       <Journey />
       <Proof />
       <StackMap />
       <ClosingCta />
     </>
+  );
+}
+
+function DeliveryPath() {
+  return (
+    <section className="border-y border-line bg-bg-elevated">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20">
+        <p className="eyebrow">{"// the delivery path"}</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+          git push to production, no glue code.
+        </h2>
+        <p className="mt-4 max-w-2xl text-ink-muted">
+          One golden path: the pipeline builds, scans, and signs your image,
+          then bumps the values in Git. ArgoCD reconciles the cluster from
+          there. Nothing deploys that didn&apos;t go through Git.
+        </p>
+        <div className="mt-10">
+          <DeliveryFlow />
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -119,7 +143,7 @@ function ProductGrid() {
 
 function Journey() {
   return (
-    <section className="border-y border-line bg-bg-elevated">
+    <section>
       <div className="mx-auto w-full max-w-6xl px-5 py-20">
         <p className="eyebrow">{"// how it fits together"}</p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight">
@@ -143,7 +167,7 @@ function Journey() {
 
 function Proof() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-20">
+    <section className="mx-auto w-full max-w-6xl border-t border-line px-5 py-20">
       <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
         <div>
           <p className="eyebrow">{"// not a demo"}</p>
@@ -202,7 +226,10 @@ function StackMap() {
           composed from the CNCF ecosystem you would have picked anyway,
           integrated so you don&apos;t have to.
         </p>
-        <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10">
+          <PlatformMap />
+        </div>
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {stack.map((group) => (
             <div key={group.group}>
               <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-muted">

@@ -232,9 +232,3 @@ export function IconPillar({ id, size = 20 }: { id: PillarIconId; size?: number 
       );
   }
 }
-
-export const LAYER_ICONS = {
-  gateway: IconHermes,
-  worker: IconWorker,
-  trust: IconBroker,
-} as const;

@@ -6,8 +6,7 @@
 export type AgentLayer = {
   id: string;
   name: string;
-  tagline: string;
-  description: string;
+  points: string[];
 };
 
 export type AgentPillar = {
@@ -33,6 +32,7 @@ export type AgentsPageContent = {
   layers: {
     eyebrow: string;
     title: string;
+    lede: string;
     items: AgentLayer[];
   };
   pillars: {
@@ -69,27 +69,35 @@ export const agentsPage: AgentsPageContent = {
   layers: {
     eyebrow: "// how it runs",
     title: "Gateway, worker, trust services.",
+    lede:
+      "Channels hit the gateway. The worker runs your config and tools. For GitHub or cloud APIs it calls in-cluster Go services that mint short-lived credentials—nothing long-lived in the pod.",
     items: [
       {
         id: "gateway",
         name: "Hermes gateway",
-        tagline: "ingress to your agents",
-        description:
-          "Routes Slack and other channels to the right worker. Channel plumbing stays out of the execution pod.",
+        points: [
+          "Routes Slack, webhooks, and channels to the right worker",
+          "Channel auth stays out of the execution pod",
+          "One gateway can front many workers",
+        ],
       },
       {
         id: "worker",
         name: "Agent worker",
-        tagline: "workspace + execution",
-        description:
-          "StatefulSet pod with the context, knowledge base, skills, and workspace you configure; model routing and tools (MCP).",
+        points: [
+          "StatefulSet pod: context, KB, skills, and workspace you configure",
+          "Model routing and MCP at runtime",
+          "Calls broker and identity with Kubernetes service-account identity",
+        ],
       },
       {
         id: "trust",
-        name: "Cluster trust services",
-        tagline: "Go services in-cluster",
-        description:
-          "GitHub credential broker and agent identity mint short-lived credentials—workers use Kubernetes service-account identity to call them.",
+        name: "Trust services",
+        points: [
+          "GitHub credential broker: short-lived git and gh tokens",
+          "Agent identity: OIDC for cloud provider APIs",
+          "Signing keys and OAuth stay in trust services, not the worker",
+        ],
       },
     ],
   },

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { AgentsPageContent } from "@/lib/content/agents-page";
-import { LAYER_ICONS } from "@/components/agents/agent-icons";
 import { AgentPlatformMap } from "@/components/agents/agent-platform-map";
 import { PillarsGraphic } from "@/components/agents/pillars-graphic";
 import { TrustBoundaryMap } from "@/components/agents/trust-boundary-map";
@@ -38,27 +37,42 @@ export function AgentsPageView({ content }: AgentsPageViewProps) {
         </div>
       </section>
 
-      <PageSection eyebrow={layers.eyebrow} title={layers.title}>
-        <div className="grid gap-5 sm:grid-cols-3">
-          {layers.items.map((layer) => {
-            const Icon = LAYER_ICONS[layer.id as keyof typeof LAYER_ICONS];
+      <PageSection
+        eyebrow={layers.eyebrow}
+        title={layers.title}
+        intro={layers.lede}
+      >
+        <ol className="flex list-none flex-col gap-5 p-0 sm:flex-row sm:items-stretch sm:gap-3">
+          {layers.items.map((layer, index) => {
+            const step = String(index + 1).padStart(2, "0");
             return (
-              <article
-                key={layer.id}
-                className="rounded-lg border border-line bg-surface p-6"
-              >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-line-strong bg-bg-elevated text-accent">
-                  <Icon size={24} />
-                </div>
-                <p className="font-mono text-xs text-accent">{layer.tagline}</p>
-                <h3 className="mt-2 text-xl font-semibold">{layer.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-                  {layer.description}
-                </p>
-              </article>
+              <li key={layer.id} className="contents sm:flex sm:flex-1 sm:items-stretch">
+                <article className="flex min-w-0 flex-1 flex-col rounded-lg border border-line bg-surface p-6">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="text-xl font-semibold">{layer.name}</h3>
+                    <span className="font-mono text-xs text-ink-muted">{step}</span>
+                  </div>
+                  <ul className="mt-4 flex flex-1 flex-col gap-2.5">
+                    {layer.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5 text-sm">
+                        <span className="mt-0.5 shrink-0 font-mono text-accent">▸</span>
+                        <span className="text-ink-muted leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+                {index < layers.items.length - 1 ? (
+                  <span
+                    className="hidden shrink-0 self-center px-0.5 font-mono text-lg text-accent/70 sm:inline"
+                    aria-hidden
+                  >
+                    →
+                  </span>
+                ) : null}
+              </li>
             );
           })}
-        </div>
+        </ol>
       </PageSection>
 
       <PageSection

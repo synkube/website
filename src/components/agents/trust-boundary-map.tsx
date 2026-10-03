@@ -1,7 +1,7 @@
 import { DIAGRAM_MONO, DiagramScrollShell } from "@/components/diagram/primitives";
 
 const ARIA =
-  "Trust boundary: agent worker pod holds your setup and runtime state. Two cluster services hold GitHub and OIDC secrets.";
+  "Trust boundary: agent worker pod holds your setup and runtime state. Trust services hold GitHub and OIDC secrets.";
 
 const CLUSTER_SERVICES = [
   {
@@ -34,7 +34,7 @@ export function TrustBoundaryMap() {
     <DiagramScrollShell ariaLabel={ARIA} minWidth={720} viewBox={`0 0 880 ${svgH}`}>
       <defs>
         <linearGradient id="pod-fill" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="var(--ok)" stopOpacity={0.12} />
+          <stop offset="0%" stopColor="var(--accent-2)" stopOpacity={0.16} />
           <stop offset="100%" stopColor="var(--accent)" stopOpacity={0.06} />
         </linearGradient>
         <linearGradient id="svc-fill" x1="0" y1="0" x2="1" y2="1">
@@ -50,10 +50,10 @@ export function TrustBoundaryMap() {
         height={panelH}
         rx={12}
         fill="url(#pod-fill)"
-        stroke="var(--ok)"
+        stroke="var(--accent-2)"
         strokeWidth={1.5}
       />
-      <text x={48} y={72} fontFamily={DIAGRAM_MONO} fontSize={13} letterSpacing={2} fill="var(--ok)">
+      <text x={48} y={72} fontFamily={DIAGRAM_MONO} fontSize={13} letterSpacing={2} fill="var(--accent-2)">
         AGENT WORKER POD
       </text>
       <text x={48} y={88} fontFamily={DIAGRAM_MONO} fontSize={10} fill="var(--ink-muted)">
@@ -68,7 +68,7 @@ export function TrustBoundaryMap() {
         "Model config · MCP tools",
       ].map((label, i) => (
         <g key={label}>
-          <circle cx={56} cy={110 + i * 32} r={4} fill="var(--ok)" />
+          <circle cx={56} cy={110 + i * 32} r={4} fill="var(--accent-2)" />
           <text x={72} y={114 + i * 32} fontFamily={DIAGRAM_MONO} fontSize={11} fill="var(--ink)">
             {label}
           </text>
@@ -86,7 +86,7 @@ export function TrustBoundaryMap() {
         strokeWidth={1.5}
       />
       <text x={480} y={72} fontFamily={DIAGRAM_MONO} fontSize={13} letterSpacing={2} fill="var(--accent)">
-        CLUSTER SERVICES
+        TRUST SERVICES
       </text>
 
       {CLUSTER_SERVICES.map((svc, i) => {

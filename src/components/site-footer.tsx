@@ -17,6 +17,9 @@ export function SiteFooter() {
             <Link href="/products" className="text-ink-muted hover:text-accent">
               Products
             </Link>
+            <Link href="/agents" className="text-ink-muted hover:text-accent">
+              Agents
+            </Link>
             <Link href="/services" className="text-ink-muted hover:text-accent">
               Services
             </Link>

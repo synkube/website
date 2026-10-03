@@ -2,7 +2,7 @@ export const site = {
   name: "SynKube",
   domain: "synkube.com",
   url: "https://synkube.com",
-  tagline: "Production-ready Kubernetes infrastructure in hours, not weeks.",
+  tagline: "Production-ready Kubernetes infrastructure in days, not months.",
   email: "hello@synkube.com",
   github: "https://github.com/synkube",
   artifactHub: "https://artifacthub.io/packages/search?org=synkube",
@@ -159,6 +159,9 @@ export const stack: { group: string; tools: string[] }[] = [
     tools: ["DigitalOcean (live)", "AWS (next)", "GCP (planned)"],
   },
 ];
+
+export { agentsPage } from "./content/agents-page";
+export type { AgentsPageContent } from "./content/agents-page";
 
 export const proofPoints = [
   "GitOps app-of-apps running our own production workloads",

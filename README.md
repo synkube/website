@@ -16,9 +16,12 @@ pnpm typecheck
 
 | Path | Purpose |
 |------|---------|
-| `src/app/` | Routes: `/`, `/products`, `/services`, `/contact` + `robots`/`sitemap` |
-| `src/components/` | Header, footer |
-| `src/lib/content.ts` | All copy and product/service data. Edit content here, not in pages. |
+| `src/app/` | Routes: `/`, `/products`, `/agents`, `/services`, `/contact` + `robots`/`sitemap` |
+| `src/components/` | Header, footer, shared UI |
+| `src/components/agents/` | `/agents` page sections and SVG diagrams |
+| `src/components/diagram/` | Shared diagram shell (scroll + arrow markers) |
+| `src/lib/content.ts` | Site-wide copy (home, products, services, contact) |
+| `src/lib/content/agents-page.ts` | `/agents` copy and structured data |
 | `src/app/globals.css` | Theme tokens (see below) |
 
 ## Theming

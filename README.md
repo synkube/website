@@ -31,3 +31,11 @@ The entire palette lives in one `:root` block in `src/app/globals.css` (theme: *
 ## Deploy
 
 Vercel, connected to this repo, `main` branch → production at `synkube.com`. No env vars required.
+
+Security and social: `vercel.json` (baseline + CSP), `src/app/opengraph-image.tsx`, JSON-LD in `src/components/site-json-ld.tsx`.
+
+Post-deploy header smoke:
+
+```bash
+curl -sI "https://synkube.com/" | rg -i 'content-security|x-content-type|x-frame|referrer|permissions'
+```

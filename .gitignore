@@ -39,4 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-.DS_Store
+
+# brand icons: committed PNGs only (pnpm brand-icons)
+/public/brand/colored/
+/public/brand/*.svg

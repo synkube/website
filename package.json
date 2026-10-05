@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "brand-icons": "python3 scripts/fetch-brand-icons.py",
+    "platform-map-png": "node scripts/capture-platform-map-png.mjs"
   },
   "dependencies": {
     "next": "16.2.12",
@@ -21,6 +23,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "playwright": "1.52.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

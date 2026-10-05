@@ -17,7 +17,7 @@ const page = await browser.newPage({
   deviceScaleFactor: 2,
 });
 await page.goto(`${baseUrl}/#stack`, { waitUntil: "networkidle" });
-const map = page.locator('svg[aria-label*="Platform map"]');
+const map = page.locator(".platform-map-frame");
 await map.waitFor({ state: "visible" });
 await map.screenshot({ path: out, type: "png" });
 await browser.close();

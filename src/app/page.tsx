@@ -226,7 +226,7 @@ function StackMap() {
           composed from the CNCF ecosystem you would have picked anyway,
           integrated so you don&apos;t have to.
         </p>
-        <div className="mt-10">
+        <div className="platform-map-frame mt-10">
           <PlatformMap />
         </div>
         <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">

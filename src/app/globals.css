@@ -76,22 +76,6 @@ body {
   }
 }
 
-.platform-map-frame {
-  border-radius: 0.75rem;
-  border: 1px solid color-mix(in oklab, var(--accent) 38%, transparent);
-  background:
-    radial-gradient(
-      ellipse 80% 55% at 50% 0%,
-      color-mix(in oklab, var(--accent) 16%, transparent),
-      transparent 70%
-    ),
-    linear-gradient(180deg, var(--accent-soft) 0%, transparent 50%);
-  padding: 1.25rem 0.75rem;
-  box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--accent-2) 10%, transparent),
-    0 0 56px color-mix(in oklab, var(--accent) 18%, transparent);
-}
-
 /* Mono uppercase section label, e.g. "// PRODUCTS" */
 .eyebrow {
   font-family: var(--font-mono), monospace;
